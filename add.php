@@ -1,5 +1,6 @@
 <?php
     // Gain access to DB
+    // Testing the edit ability
     require_once "db.php";
     // Initialize session for page
     session_start();
