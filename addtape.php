@@ -4,8 +4,6 @@
     // Initialize session for page
     session_start();
     
-    require_once "navigation.php";
-
     // Need to check whether the user came to this page because of clicking the
     // link from the index page or because of the form submission in this page.
     if ( isset($_POST['title']) && 
@@ -101,6 +99,8 @@
         // Suspend further execution of this page and wait for redirect
         return;
     }
+    
+    require_once "navigation.php";
 ?>
 <html>
     <body>
