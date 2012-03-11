@@ -4,6 +4,59 @@
     // Initialize session for page
     session_start();
     
+    //Fetch information from the artist table
+    $sql1="SELECT id, title FROM artist"; 
+    $result=mysql_query($sql1); 
+    
+    $options=""; 
+
+    while ($row=mysql_fetch_array($result)) { 
+
+        $id=$row["id"]; 
+        $artist=$row["title"]; 
+        $options.="<OPTION VALUE=\"$id\">".$artist."</option>";
+        }
+        
+    //Fetch information from the analog table
+    $sql2="SELECT id, title FROM analog"; 
+    $result2=mysql_query($sql2); 
+    
+    $options2=""; 
+
+    while ($row2=mysql_fetch_array($result2)) { 
+
+        $id2=$row2["id"]; 
+        $analog=$row2["title"]; 
+        $options2.="<OPTION VALUE=\"$id2\">".$analog."</option>";
+        }
+        
+    //Fetch information from the format table
+    $sql3="SELECT id, title FROM format"; 
+    $result3=mysql_query($sql3); 
+    
+    $options3=""; 
+
+    while ($row3=mysql_fetch_array($result3)) { 
+
+        $id3=$row3["id"]; 
+        $format=$row3["title"]; 
+        $options3.="<OPTION VALUE=\"$id3\">".$format."</option>";
+        }
+    
+    //Fetch information from the notebook table
+    $sql4="SELECT id, notebook_number FROM notebook"; 
+    $result4=mysql_query($sql4); 
+    
+    $options4=""; 
+
+    while ($row4=mysql_fetch_array($result4)) { 
+
+        $id4=$row4["id"]; 
+        $notebook=$row3["notebook_id"]; 
+        $options4.="<OPTION VALUE=\"$id4\">".$notebook."</option>";
+        }
+    
+    
     // Need to check whether the user came to this page because of clicking the
     // link from the index page or because of the form submission in this page.
     if ( isset($_POST['title']) && 
@@ -101,6 +154,7 @@
     }
     
     require_once "navigation.php";
+    
 ?>
 <html>
     <body>
@@ -109,7 +163,7 @@
         <p> Add a new tape: </p>
         <form method="post">
             <table border="0">
-            	<tr>
+                <tr>
                     <td align="right">Title</td>
                     <td>:</td>
                     <td><input type="text" name="title"></td>
@@ -117,23 +171,43 @@
                 <tr>
                     <td align="right">Primary Artist</td>
                     <td>:</td>
-                    <td><input type="text" name="primary_artist_id"></td>
+                    <td><select name="primary_artist_id">
+                    <OPTION VALUE=0>Choose
+                    <?=$options; ?>
+                    </select>
+                    </td>
+                    <td>
                 </tr>
+                
                 <tr>
                     <td align="right">Secondary Artist</td>
                     <td>:</td>
-                    <td><input type="text" name="secondary_artist_id"></td>
+                    <td><select name="secondary_artist_id">
+                    <OPTION VALUE=0>Choose
+                    <?=$options; ?>
+                    </select>
+                    </td>
                 </tr>
                 <tr>
                     <td align="right">Other Artist</td>
                     <td>:</td>
-                    <td><input type="text" name="other_artist_id"></td>
+                    <td><select name="other_artist_id">
+                    <OPTION VALUE=0>Choose
+                    <?=$options; ?>
+                    </select>
+                    </td>
                 </tr>
+                
                 <tr>
                     <td align="right">Analog Format</td>
                     <td>:</td>
-                    <td><input type="text" name="analog_id"></td>
+                    <td><select name="analog_id">
+                    <OPTION VALUE=0>Choose
+                    <?=$options2; ?>
+                    </select>
+                    </td>
                 </tr>
+                
                 <tr>
                     <td align="right">Date Digitized</td>
                     <td>:</td>
@@ -169,11 +243,17 @@
                     <td>:</td>
                     <td><input type="text" name="depth"></td>
                 </tr>
-                <tr>
+               
+               <tr>
                     <td align="right">Format</td>
                     <td>:</td>
-                    <td><input type="text" name="format_id"></td>
+                    <td><select name="format_id">
+                    <OPTION VALUE=0>Choose
+                    <?=$options3; ?>
+                    </select>
+                    </td>
                 </tr>
+                
                 <tr>
                     <td align="right">Side A</td>
                     <td>:</td>
@@ -197,7 +277,11 @@
                 <tr>
                     <td align="right">Notebook ID</td>
                     <td>:</td>
-                    <td><input type="text" name="notebook_id"></td>
+                    <td><select name="notebook_id">
+                    <OPTION VALUE=0>Choose
+                    <?=$options4; ?>
+                    </select>
+                    </td>  
                 </tr>
                 <tr>
                     <td align="right">Year</td>
