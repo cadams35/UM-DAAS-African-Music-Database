@@ -4,8 +4,6 @@
     // Initialize session for page
     session_start();
     
-    require_once "navigation.php";
-    
     // Check if id was sent to the page, we need it to know what to edit
     if (isset($_GET['id']) === FALSE) {
         // No id was sent
@@ -150,7 +148,8 @@
     $year = htmlentities($row[19]);
     $artwork = htmlentities($row[20]);
     $nyrere = htmlentities($row[21]);
-        
+    
+    require_once "navigation.php";
 ?>
 <html>
     <body>
