@@ -19,6 +19,13 @@
       	</ul>
       	</div>
       	<p>Manage metadata fields</p>
-      	<a href="/metadata.php">Filler</a>
+      	<ul>
+          <li><a href="manage_artists.php">Artists</a></li>
+          <li><a href="manage_rate.php">Sampe Rate</a></li>
+          <li><a href="manage_depth.php">Bit Depth</a></li>
+          <li><a href="manage_store-artwork.php">Store/Artwork</a></li>
+          <li><a href="manage_analog.php">Analog</a></li>
+          <li><a href="manage_drawer.php">Drawer</a></li>
+        </ul>
     </body>
 </html>
