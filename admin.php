@@ -20,7 +20,7 @@
       	</div>
       	<p>Manage metadata fields</p>
       	<ul>
-          <li><a href="manage_artists.php">Artists</a></li>
+          <li><a href="manage_artist.php">Artists</a></li>
           <li><a href="manage_rate.php">Sampe Rate</a></li>
           <li><a href="manage_depth.php">Bit Depth</a></li>
           <li><a href="manage_store-artwork.php">Store/Artwork</a></li>
